@@ -1,0 +1,361 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Thank You ❤️</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      overflow: hidden;
+      font-family: "Segoe UI", Arial, sans-serif;
+      background:
+        radial-gradient(circle at top, #ff6b81, transparent 40%),
+        linear-gradient(135deg, #16001f, #4a0e35, #16001f);
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      padding: 20px;
+    }
+
+    /* Main Card */
+    .card {
+      width: 100%;
+      max-width: 520px;
+      padding: 40px 28px;
+      text-align: center;
+
+      background: rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 30px;
+
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+
+      box-shadow:
+        0 20px 60px rgba(0,0,0,0.5),
+        0 0 35px rgba(255,80,130,0.25);
+
+      animation: appear 1.2s ease;
+      z-index: 10;
+    }
+
+    @keyframes appear {
+      from {
+        opacity: 0;
+        transform: scale(0.75) translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+      }
+    }
+
+    /* Heart */
+    .heart {
+      font-size: 75px;
+      animation: heartbeat 1.4s infinite;
+      filter: drop-shadow(0 0 15px #ff4d6d);
+    }
+
+    @keyframes heartbeat {
+      0%, 100% {
+        transform: scale(1);
+      }
+
+      15% {
+        transform: scale(1.2);
+      }
+
+      30% {
+        transform: scale(1);
+      }
+
+      45% {
+        transform: scale(1.15);
+      }
+    }
+
+    h1 {
+      margin: 18px 0 10px;
+      font-size: clamp(32px, 9vw, 52px);
+      text-shadow: 0 0 20px rgba(255,255,255,0.6);
+    }
+
+    h2 {
+      font-size: clamp(20px, 5vw, 28px);
+      margin-bottom: 20px;
+      color: #ffd6e0;
+    }
+
+    .message {
+      font-size: 18px;
+      line-height: 1.8;
+      color: #fff0f4;
+      margin-bottom: 25px;
+    }
+
+    .highlight {
+      color: #ff9db5;
+      font-weight: bold;
+    }
+
+    button {
+      border: none;
+      outline: none;
+
+      padding: 14px 30px;
+      border-radius: 50px;
+
+      background: white;
+      color: #c2185b;
+
+      font-size: 17px;
+      font-weight: bold;
+
+      cursor: pointer;
+
+      box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+
+      transition: 0.3s;
+    }
+
+    button:hover {
+      transform: scale(1.08);
+    }
+
+    button:active {
+      transform: scale(0.95);
+    }
+
+    /* Floating Hearts */
+    .floating-heart {
+      position: absolute;
+      bottom: -50px;
+      font-size: 25px;
+      animation: floatHeart linear infinite;
+      opacity: 0.7;
+      z-index: 1;
+    }
+
+    @keyframes floatHeart {
+      from {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+      }
+
+      20% {
+        opacity: 0.8;
+      }
+
+      to {
+        transform: translateY(-120vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    /* Confetti */
+    .confetti {
+      position: fixed;
+      top: -20px;
+      width: 9px;
+      height: 16px;
+      z-index: 100;
+      animation: confettiFall linear forwards;
+    }
+
+    @keyframes confettiFall {
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+      }
+
+      100% {
+        transform: translateY(110vh) rotate(720deg);
+        opacity: 0;
+      }
+    }
+
+    /* Mobile */
+    @media (max-width: 480px) {
+
+      body {
+        padding: 15px;
+      }
+
+      .card {
+        padding: 32px 20px;
+        border-radius: 25px;
+      }
+
+      .heart {
+        font-size: 60px;
+      }
+
+      .message {
+        font-size: 16px;
+        line-height: 1.7;
+      }
+
+      button {
+        width: 100%;
+        padding: 14px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Main Card -->
+  <div class="card">
+
+    <div class="heart">❤️</div>
+
+    <h1>Thank You</h1>
+
+    <h2>For Being Part of My Life ✨</h2>
+
+    <div class="message">
+      Thank you for coming into my life and making
+      ordinary moments feel special.
+
+      <br><br>
+
+      Thank you for your <span class="highlight">care</span>,
+      your <span class="highlight">support</span>,
+      your <span class="highlight">smile</span>,
+      and for simply being there.
+
+      <br><br>
+
+      Life feels a little more beautiful because
+      <span class="highlight">you are a part of it.</span>
+
+      ❤️
+
+      <br><br>
+
+      No matter where life takes us,
+      I will always be grateful for the memories
+      we create together.thank you di papa.love you di bubu THANGAM.
+    </div>
+
+    <button onclick="celebrate()">
+      💖 A Little Surprise 💖
+    </button>
+
+  </div>
+
+
+  <script>
+
+    /* Create Confetti */
+    function createConfetti() {
+
+      const confetti = document.createElement("div");
+
+      confetti.className = "confetti";
+
+      const colors = [
+        "#ff4d6d",
+        "#ff9db5",
+        "#ffd166",
+        "#06d6a0",
+        "#4dabf7",
+        "#ffffff",
+        "#c77dff"
+      ];
+
+      confetti.style.left =
+        Math.random() * 100 + "vw";
+
+      confetti.style.backgroundColor =
+        colors[Math.floor(Math.random() * colors.length)];
+
+      confetti.style.animationDuration =
+        (Math.random() * 3 + 2) + "s";
+
+      confetti.style.transform =
+        `rotate(${Math.random() * 360}deg)`;
+
+      document.body.appendChild(confetti);
+
+      setTimeout(() => {
+        confetti.remove();
+      }, 5500);
+    }
+
+
+    /* Celebration */
+    function celebrate() {
+
+      for (let i = 0; i < 180; i++) {
+
+        setTimeout(() => {
+          createConfetti();
+        }, i * 12);
+
+      }
+
+    }
+
+
+    /* Floating Hearts */
+    function createHeart() {
+
+      const heart = document.createElement("div");
+
+      heart.className = "floating-heart";
+
+      heart.innerHTML =
+        ["❤️", "💖", "💕", "💗", "✨"]
+        [Math.floor(Math.random() * 5)];
+
+      heart.style.left =
+        Math.random() * 100 + "vw";
+
+      heart.style.animationDuration =
+        (Math.random() * 5 + 5) + "s";
+
+      heart.style.fontSize =
+        (Math.random() * 20 + 18) + "px";
+
+      document.body.appendChild(heart);
+
+      setTimeout(() => {
+        heart.remove();
+      }, 10000);
+
+    }
+
+
+    /* Start animations */
+    window.onload = () => {
+
+      celebrate();
+
+      setInterval(createHeart, 700);
+
+    };
+
+  </script>
+
+</body>
+</html>
+```
+
+
+
